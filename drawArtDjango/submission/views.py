@@ -1,6 +1,19 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from rest_framework.generics import (
+    CreateAPIView, UpdateAPIView
+)
 
-# Create your views here.
+from submission.models import Submission
+from submission.serializers import SubmissionSerializer
+
+
+class SubmissionCreate(CreateAPIView):
+    queryset = Submission.objects.all()
+    serializer_class = SubmissionSerializer
+
+class SubmissionUpdate(UpdateAPIView):
+    queryset = Submission.objects.all()
+    serializer_class = SubmissionSerializer
+    lookup_url_kwarg = 'submission_id'

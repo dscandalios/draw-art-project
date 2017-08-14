@@ -19,5 +19,5 @@ from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^api/v1/submission/', include('submission.urls'))
+    url(r'^api/v1/submission/', include('submission.urls'))
 ]
